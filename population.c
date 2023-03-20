@@ -1,30 +1,36 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int main()
+int main(void)
 {
-    int startSize;
+    // TODO: Prompt for start size
+
+    // TODO: Prompt for end size
+
+    // TODO: Calculate number of years until we reach threshold
+
+    // TODO: Print number of years
+
+    int start = 0;
+    int end = 0;
     do
     {
-        startSize = get_int("enter the start size: ");
+        start = get_int("Start Size: ");
     }
-    while(startSize < 9);
-    int end;
+    while (start < 9);
+
     do
     {
-        end = get_int("enter the end size: ");
+        end = get_int("End Size: ");
     }
-    while(end < startSize);
-    int year = 0;
-    int population = startSize;
+    while (end < start);
 
-    int gain;
-    while(population < end)
+    int years = 0;
+
+    while (start < end)
     {
-        gain = population / 3 - population / 4;
-        population = population + gain;
-        year++;
+        years++;
+        start = start + (start / 3 - start / 4);
     }
-
-    printf("Year: %i\n", year);
+    printf("Years: %i\n", years);
 }
